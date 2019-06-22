@@ -22,11 +22,11 @@ export class ProjekatService{
     }
     //dodato nakon 4
     
-    public addProjekat(projekat: Projekat){
+    public addProjekat(projekat: Projekat): void{
         this.httpClient.post(this.API_URL, projekat).subscribe();
     }
 
-    public updateProjekat(projekat: Projekat){
+    public updateProjekat(projekat: Projekat): void{
         this.httpClient.put(this.API_URL, projekat).subscribe();
     }
 

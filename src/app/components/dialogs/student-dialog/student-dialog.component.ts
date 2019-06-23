@@ -32,20 +32,25 @@ export class StudentDialogComponent implements OnInit {
     );
   }
 
+  
+  compareTo(a, b) {
+    return a.id == b.id;
+  }
+
   public add(): void {
     this.data.id = -1;
     this.studentService.addStudent(this.data);
-    this.snackBar.open("Uspešno dodata stavka porudžbine", "U redu", { duration: 2500 });
+    this.snackBar.open("Uspesno dodat student", "U redu", { duration: 2500 });
   }
 
   public update(): void {
     this.studentService.updateStudent(this.data);
-    this.snackBar.open("Uspešno modifikovana stavka porudžbine", "U redu", { duration: 2500 });
+    this.snackBar.open("Uspesno modifikovan student", "U redu", { duration: 2500 });
   }
 
   public delete(): void {
     this.studentService.deleteStudent(this.data.id);
-    this.snackBar.open("Uspešno obrisana stavka porudžbine", "U redu", { duration: 2000 });
+    this.snackBar.open("Uspesno obrisan student", "U redu", { duration: 2000 });
   }
 
   public cancel(): void {
@@ -53,7 +58,4 @@ export class StudentDialogComponent implements OnInit {
     this.snackBar.open("Odustali ste", "U redu", { duration: 1000 });
   }
 
-  compareTo(a, b) {
-    return a.id == b.id;
-  }
 }

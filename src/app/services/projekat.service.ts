@@ -2,7 +2,7 @@
 
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Projekat } from '../models/projekat';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -16,9 +16,11 @@ export class ProjekatService{
     public getAllProjekat(): Observable<Projekat[]>{
         this.httpClient.get<Projekat[]>(this.API_URL).subscribe(data => {
             this.dataChange.next(data);
-        })
-
-        return this.dataChange.asObservable();
+        },
+           (error: HttpErrorResponse) => {
+               console.log(error.name + ' ' + error.message)
+           });
+           return this.dataChange.asObservable();
     }
     //dodato nakon 4
     

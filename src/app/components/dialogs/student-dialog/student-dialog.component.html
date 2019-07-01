@@ -1,13 +1,15 @@
 <div class="container">
-  <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje studenta</h3>
-  <h3 mat-dialog-title *ngIf="flag == 2">Modifikacija studenta: {{data.id}}</h3>
-  <h3 mat-dialog-title *ngIf="flag == 3">Brisanje studenta: {{data.id}}</h3>
+  <h3 mat-dialog-title *ngIf="flag==1">Dodavanje studenta</h3>
+  <h3 mat-dialog-title *ngIf="flag==2">Modifikacija studenta: {{data.id}}</h3>
+  <h3 mat-dialog-title *ngIf="flag==3">Brisanje studenta: {{data.id}}</h3>
  
   <form class="mat-dialog-content"  #formControl="ngForm">
  
     <div class="form">
       <mat-form-field>
-        <mat-select [(ngModel)]="data.projekat" placeholder="Projekat" name="projekat" [compareWith]="compareTo" [disabled]="flag == 3">
+      <!--    s ovim je izbacivalo error <mat-select [(ngModel)]="data.projekat" placeholder="Projekat" name="projekat" [compareWith]="compareTo" [disabled]="flag == 3">
+-->
+        <mat-select [(ngModel)]="data.projekat" placeholder="Projekat" name="projekat" [disabled]="flag == 3">
           <mat-option *ngFor="let projekat of projekti" [value]="projekat">
             {{ projekat.naziv }}
           </mat-option>
